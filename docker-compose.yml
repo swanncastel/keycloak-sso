@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  sso:
+    image: jboss/keycloak
+    environment:
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: admin
+      KEYCLOAK_IMPORT: /tmp/realm-export.json
+    volumes:
+    - ./realm-export.json:/tmp/realm-export.json
+    ports:
+    - "8080:8080"
+    networks:
+      - "sso"
+  back_1:
+    build: ./back_1
+    ports:
+    - "3000:3000"
+    networks:
+      - "sso"
+  front:
+    build: ./front
+    ports:
+    - "80:80"
+    networks:
+      - "sso"
+
+networks:
+  sso:
+      driver: bridge

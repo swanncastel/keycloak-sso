@@ -1,0 +1,10 @@
+{
+  "realm": "sso",
+  "auth-server-url": "http://localhost:8080/auth",
+  "ssl-required": "external",
+  "resource": "front",
+  "credentials": {
+    "secret": "fe7d3ec6-b41a-43ba-af4a-5222fd6eac5a"
+  },
+  "confidential-port": 0
+}
