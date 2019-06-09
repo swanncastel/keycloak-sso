@@ -19,12 +19,14 @@ app.get('/public', (_, res) => {
   res.send('Hello world');
 })
 
-app.get('/private', keycloak.protect(), (_, res) => {
-  res.send('private');
-});
+const todos = [
+  { text: 'Homework' },
+  { text: 'Go shopping ' },
+  { text: 'Do Yoga' }
+]
 
-app.get('/check-sso', keycloak.checkSso(), (_, res) => {
-  res.send('sso');
+app.get('/todos', keycloak.protect(), (_, res) => {
+  res.send(todos)
 });
 
 app.listen(PORT, () => {

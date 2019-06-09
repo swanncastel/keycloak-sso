@@ -11,12 +11,8 @@ services:
     - ./realm-export.json:/tmp/realm-export.json
     ports:
     - "8080:8080"
-    networks:
-      - "sso"
   back_1:
     build: ./back_1
-    ports:
-    - "3000:3000"
     networks:
       - "sso"
   front:

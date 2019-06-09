@@ -17,6 +17,11 @@ const router = new Router({
       path: '/about',
       name: 'about',
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+    },
+    {
+      path: '/todo-list',
+      name: 'todo-list',
+      component: () => import(/* webpackChunkName: "todo" */ './views/TodoList.vue')
     }
   ]
 })
